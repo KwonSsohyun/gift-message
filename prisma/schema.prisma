@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model WishlistItem {
+  id          String   @id @default(cuid())
+  title       String
+  url         String?
+  description String?
+  imageUrl    String?
+  price       String?
+  createdAt   DateTime @default(now())
+
+  reservation Reservation?
+}
+
+model Reservation {
+  id             String   @id @default(cuid())
+  reserverName   String
+  note           String?
+  createdAt      DateTime @default(now())
+
+  item   WishlistItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  itemId String       @unique
+}

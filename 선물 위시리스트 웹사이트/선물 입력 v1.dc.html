@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#FFF4F8; font-family:'Gowun Dodum', sans-serif; color:#6B3A4E; }
+  a { color:#E4658E; text-decoration:none; }
+  a:hover { color:#C24470; }
+  input { font-family:'Gowun Dodum', sans-serif; }
+  @keyframes gb-shake { 0%,100%{transform:rotate(-6deg) scale(1)} 25%{transform:rotate(7deg) scale(1.04)} 50%{transform:rotate(-8deg) scale(1.02)} 75%{transform:rotate(6deg) scale(1.06)} }
+  @keyframes gb-pop { 0%{transform:scale(0.6); opacity:1} 60%{transform:scale(1.5); opacity:0.9} 100%{transform:scale(2.1); opacity:0} }
+  @keyframes gb-fly { 0%{transform:translate(0,0) scale(0.3) rotate(0deg); opacity:0} 15%{opacity:1} 100%{transform:translate(var(--tx,0px), var(--ty,0px)) scale(1) rotate(220deg); opacity:0} }
+  @keyframes gb-lid { 0%{transform:translateY(0) rotate(0deg); opacity:1} 100%{transform:translateY(-150px) rotate(-36deg); opacity:0} }
+  @keyframes gb-boxfade { 0%{transform:scale(1)} 30%{transform:scale(1.14)} 100%{transform:scale(0.86); opacity:0} }
+  @keyframes gb-text { 0%{transform:scale(0.5) rotate(-6deg); opacity:0} 55%{transform:scale(1.14) rotate(2deg); opacity:1} 100%{transform:scale(1) rotate(0); opacity:1} }
+  @keyframes cat-bounce { 0%,100%{transform:scaleX(1); opacity:0.9} 50%{transform:scaleX(0.82); opacity:0.6} }
+  @keyframes cat-dance { 0%{transform:translateY(0) rotate(-5deg) scaleX(1)} 25%{transform:translateY(-12px) rotate(2deg) scaleX(1.02)} 50%{transform:translateY(0) rotate(5deg) scaleX(1)} 75%{transform:translateY(-12px) rotate(-2deg) scaleX(1.02)} 100%{transform:translateY(0) rotate(-5deg) scaleX(1)} }
+  @keyframes cat-armL { 0%,100%{transform:rotate(14deg)} 50%{transform:rotate(-46deg)} }
+  @keyframes cat-armR { 0%,100%{transform:rotate(-46deg)} 50%{transform:rotate(14deg)} }
+  @keyframes cat-tail { 0%,100%{transform:rotate(-16deg)} 50%{transform:rotate(22deg)} }
+  @keyframes note-float { 0%{transform:translateY(20px) rotate(-10deg); opacity:0} 25%{opacity:1} 100%{transform:translateY(-90px) rotate(16deg); opacity:0} }
+</style>
+</helmet>
+
+<div style="min-height:100vh; display:flex; align-items:center; justify-content:center; padding:48px 24px">
+  <div style="width:100%; max-width:720px; background:#FF9EBE; border-radius:36px; padding:14px; box-shadow:0 24px 56px rgba(214,111,146,0.26)">
+    <div style="background:#FFFCFA; border-radius:26px; overflow:hidden">
+      <div style="height:16px; background-image:radial-gradient(circle at 10px 0, #FF9EBE 8px, transparent 8.5px); background-size:20px 16px; background-repeat:repeat-x"></div>
+
+      <sc-if value="{{ isIntro }}" hint-placeholder-val="{{ true }}">
+        <div style="padding:70px 44px 80px; display:flex; flex-direction:column; align-items:center; gap:28px; text-align:center">
+          <span style="font-family:'Gaegu',cursive; font-weight:700; font-size:22px; color:#C24470; background:#FFF0F5; border:1.5px solid #FFD2E0; border-radius:999px; padding:6px 20px">gift.me ♡</span>
+          <h1 style="font-family:'Gaegu',cursive; font-weight:700; font-size:52px; margin:0; color:#C24470; line-height:1.25; text-wrap:pretty">받고 싶은 선물을 입력해줘</h1>
+          <p style="margin:0; font-size:17px; color:#8C5A6E">한 개만 적어도 괜찮아 ♡</p>
+          <button type="button" onClick="{{ start }}" style="margin-top:6px; background:#E4658E; color:#fff; border:none; font-family:'Gaegu',cursive; font-weight:700; font-size:26px; border-radius:999px; padding:16px 52px; cursor:pointer; box-shadow:0 12px 24px rgba(228,101,142,0.36)" style-hover="background:#C24470">입력하기</button>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isForm }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:54px 44px 64px; display:flex; flex-direction:column; gap:36px">
+          <div style="text-align:center">
+            <h2 style="font-family:'Gaegu',cursive; font-weight:700; font-size:40px; margin:0 0 8px; color:#C24470">받고 싶은 선물을 입력해줘</h2>
+            <p style="margin:0; font-size:16px; color:#8C5A6E">둘 중에 하나만 적을 수 있어</p>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px; align-items:start">
+
+            <div ref="{{ dodgeRef }}" style="background:#FDF7F9; border:2px dashed #F0D3DE; border-radius:22px; padding:22px; transition:transform 0.32s cubic-bezier(0.34,1.4,0.64,1); position:relative">
+              <div style="font-size:16px; color:#9C6B82; margin-bottom:12px; pointer-events:none">필요없음</div>
+              <div style="background:#fff; border:1.5px solid #F0D3DE; border-radius:14px; padding:14px 16px; font-size:16px; color:#9C6B82; pointer-events:none; user-select:none">적을 수 없어</div>
+            </div>
+
+            <div style="position:relative; z-index:2; background:#FFF0F5; border:2px solid #FFD2E0; border-radius:22px; padding:22px">
+              <div style="font-size:16px; color:#C24470; margin-bottom:12px">입력하기</div>
+              <input type="text" value="{{ text }}" onChange="{{ onType }}" onKeyDown="{{ onKey }}" placeholder="예) 레이스 리본 파우치" style="width:100%; box-sizing:border-box; background:#fff; border:1.5px solid #FFB8CF; border-radius:14px; padding:14px 16px; font-size:17px; color:#6B3A4E; outline:none">
+              <button type="button" onClick="{{ save }}" style="margin-top:14px; width:100%; background:#E4658E; color:#fff; border:none; font-size:17px; font-weight:700; border-radius:999px; padding:14px; cursor:pointer" style-hover="background:#C24470">저장하기</button>
+            </div>
+
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isCelebrate }}" hint-placeholder-val="{{ false }}">
+        <div style="position:relative; padding:34px 20px 120px; display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center; min-height:420px">
+
+          <div style="position:relative; width:100%; height:210px; display:flex; align-items:center; justify-content:center">
+            <div style="position:absolute; left:50%; top:50%; width:0; height:0">{{ confetti }}</div>
+
+            <sc-if value="{{ boxVisible }}" hint-placeholder-val="{{ true }}">
+              <div style="position:relative; z-index:2; animation:gb-shake 340ms ease-in-out infinite; transform-origin:50% 100%">
+                <div style="width:132px; height:110px; background:#E4658E; border-radius:14px; box-shadow:0 12px 24px rgba(228,101,142,0.35); position:relative">
+                  <div style="position:absolute; left:50%; top:0; bottom:0; width:20px; margin-left:-10px; background:#FFE6A7"></div>
+                  <div style="position:absolute; left:0; right:0; top:50%; height:20px; margin-top:-10px; background:#FFE6A7"></div>
+                  <div style="position:absolute; left:50%; top:-26px; margin-left:-40px; width:80px; height:34px; border:9px solid #FFE6A7; border-radius:40px 40px 6px 6px; box-sizing:border-box"></div>
+                </div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ boxOpening }}" hint-placeholder-val="{{ false }}">
+              <div style="position:relative; z-index:2; animation:gb-boxfade 700ms ease-out forwards">
+                <div style="width:132px; height:110px; background:#E4658E; border-radius:14px; box-shadow:0 12px 24px rgba(228,101,142,0.35); position:relative">
+                  <div style="position:absolute; left:50%; top:0; bottom:0; width:20px; margin-left:-10px; background:#FFE6A7"></div>
+                  <div style="position:absolute; left:0; right:0; top:50%; height:20px; margin-top:-10px; background:#FFE6A7"></div>
+                  <div style="position:absolute; left:50%; top:-26px; margin-left:-40px; width:80px; height:34px; border:9px solid #FFE6A7; border-radius:40px 40px 6px 6px; box-sizing:border-box; animation:gb-lid 700ms cubic-bezier(0.2,0.9,0.4,1) forwards"></div>
+                </div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ burst }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute; z-index:1; width:230px; height:230px; border-radius:999px; background:radial-gradient(circle, rgba(255,230,167,0.95) 0%, rgba(255,158,190,0.5) 45%, rgba(255,158,190,0) 70%); animation:gb-pop 760ms ease-out forwards"></div>
+            </sc-if>
+
+            <sc-if value="{{ showText }}" hint-placeholder-val="{{ false }}">
+              <div style="position:relative; z-index:3; display:flex; flex-direction:column; align-items:center; gap:10px; animation:gb-text 620ms cubic-bezier(0.34,1.5,0.64,1) forwards">
+                <span style="font-size:17px; color:#8C5A6E">받고 싶은 선물은</span>
+                <span style="font-family:'Gaegu',cursive; font-weight:700; font-size:54px; color:#C24470; line-height:1.15; max-width:560px; text-wrap:pretty">{{ saved }}</span>
+              </div>
+            </sc-if>
+          </div>
+
+          <div ref="{{ catsRef }}" style="position:absolute; inset:0; z-index:1; pointer-events:none">
+            <canvas width="300" height="336" style="position:absolute; left:8px; top:18px; width:84px; height:94px; transform-origin:50% 100%; animation:cat-dance 420ms ease-in-out 120ms infinite"></canvas>
+            <canvas width="300" height="336" style="position:absolute; right:8px; top:4px; width:92px; height:103px; transform-origin:50% 100%; animation:cat-dance 420ms ease-in-out 250ms infinite reverse"></canvas>
+            <canvas width="300" height="336" style="position:absolute; left:20px; bottom:8px; width:104px; height:116px; transform-origin:50% 100%; animation:cat-dance 420ms ease-in-out 60ms infinite reverse"></canvas>
+            <canvas width="300" height="336" style="position:absolute; right:20px; bottom:2px; width:110px; height:123px; transform-origin:50% 100%; animation:cat-dance 420ms ease-in-out 180ms infinite"></canvas>
+            <canvas width="420" height="470" style="position:absolute; left:50%; margin-left:-84px; bottom:-4px; width:168px; height:188px; transform-origin:50% 100%; animation:cat-dance 420ms ease-in-out infinite"></canvas>
+          </div>
+          {{ notes }}
+
+        </div>
+      </sc-if>
+
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:860,&quot;height&quot;:700},&quot;musicOn&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;연출&quot;}}">
+class Component extends DCLogic {
+  state = { step: 'intro', text: '', saved: '', phase: 'box', music: this.props.musicOn ?? true };
+
+  dodgeRef = el => {
+    if (this._dodgeEl === el) return;
+    if (this._dodgeEl) {
+      this._dodgeEl.removeEventListener('pointerenter', this._dodge);
+      this._dodgeEl.removeEventListener('mouseover', this._dodge);
+    }
+    this._dodgeEl = el;
+    if (el) {
+      el.addEventListener('pointerenter', this._dodge);
+      el.addEventListener('mouseover', this._dodge);
+    }
+  };
+
+  // moves only left / up / down so it never covers the real input column
+  _dodge = () => {
+    const el = this._dodgeEl;
+    if (!el) return;
+    const n = (this._dodgeN = (this._dodgeN || 0) + 1);
+    const x = -(30 + Math.random() * 60);
+    const y = (n % 2 ? -1 : 1) * (26 + Math.random() * 34);
+    el.style.transform = `translate(${x}px, ${y}px) rotate(-7deg)`;
+  };
+
+  // draws the dance clip to canvas, keying out its white backdrop each frame
+  catsRef = el => {
+    if (this._wrap === el) return;
+    this._wrap = el;
+    if (!el) { cancelAnimationFrame(this._raf); if (this._vid) this._vid.pause(); return; }
+    const targets = Array.from(el.querySelectorAll('canvas'));
+    if (!targets.length) return;
+    const v = this._vid || (this._vid = Object.assign(document.createElement('video'), {
+      src: './cat-dance.mp4', loop: true, muted: true, playsInline: true, autoplay: true, crossOrigin: 'anonymous'
+    }));
+    v.muted = true;
+    v.play().catch(() => {});
+    const W = 420, H = 470;
+    const off = document.createElement('canvas');
+    off.width = W; off.height = H;
+    const ctx = off.getContext('2d', { willReadFrequently: true });
+
+    // one-off: find the subject's bounding box in the green field so we can crop to it
+    const findCrop = () => {
+      const vw = v.videoWidth, vh = v.videoHeight;
+      const cw = 120, ch = Math.max(1, Math.round(vh * (120 / vw)));
+      const oc = document.createElement('canvas');
+      oc.width = cw; oc.height = ch;
+      const octx = oc.getContext('2d', { willReadFrequently: true });
+      octx.drawImage(v, 0, 0, cw, ch);
+      const q = octx.getImageData(0, 0, cw, ch).data;
+      let x0 = cw, y0 = ch, x1 = -1, y1 = -1;
+      for (let j = 0; j < ch; j++) for (let i = 0; i < cw; i++) {
+        const k = (j * cw + i) * 4;
+        if (q[k + 1] - Math.max(q[k], q[k + 2]) > 40) continue;
+        if (i < x0) x0 = i;
+        if (i > x1) x1 = i;
+        if (j < y0) y0 = j;
+        if (j > y1) y1 = j;
+      }
+      if (x1 < 0) return null;
+      const sc = vw / cw, pad = 6;
+      const sx = Math.max(0, (x0 - pad) * sc), sy = Math.max(0, (y0 - pad) * sc);
+      const sw = Math.min(vw - sx, (x1 - x0 + 1 + pad * 2) * sc);
+      const sh = Math.min(vh - sy, (y1 - y0 + 1 + pad * 2) * sc);
+      return sw > 8 && sh > 8 ? { sx, sy, sw, sh } : null;
+    };
+
+    const draw = () => {
+      this._raf = requestAnimationFrame(draw);
+      if (!v.videoWidth || v.readyState < 2) return;
+      if (!this._crop) this._crop = findCrop() || { sx: 0, sy: 0, sw: v.videoWidth, sh: v.videoHeight };
+      const c0 = this._crop;
+      const s = Math.min(W / c0.sw, H / c0.sh);
+      const w = c0.sw * s, h = c0.sh * s;
+      ctx.clearRect(0, 0, W, H);
+      ctx.drawImage(v, c0.sx, c0.sy, c0.sw, c0.sh, (W - w) / 2, H - h, w, h);
+      const d = ctx.getImageData(0, 0, W, H), p = d.data;
+      for (let i = 0; i < p.length; i += 4) {
+        if (!p[i + 3]) continue;
+        const r = p[i], g = p[i + 1], b = p[i + 2];
+        const spill = g - Math.max(r, b);
+        if (spill > 48) { p[i + 3] = 0; continue; }
+        if (spill > 22) {
+          p[i + 3] = Math.round(255 * (48 - spill) / 26);
+          const avg = (r + b) / 2;
+          if (g > avg) p[i + 1] = Math.round(avg + (g - avg) * 0.3);
+        }
+      }
+      ctx.putImageData(d, 0, 0);
+      targets.forEach(t => {
+        const tc = t.getContext('2d');
+        tc.clearRect(0, 0, t.width, t.height);
+        tc.drawImage(off, 0, 0, W, H, 0, 0, t.width, t.height);
+      });
+    };
+    draw();
+  };
+
+  save = () => {
+    const t = this.state.text.trim();
+    if (!t) return;
+    this._timers = this._timers || [];
+    this.setState({ step: 'celebrate', saved: t, text: '', phase: 'box' });
+    this._timers.push(setTimeout(() => this.setState({ phase: 'burst' }), 620));
+    this._timers.push(setTimeout(() => this.setState({ phase: 'text' }), 940));
+    if (this.state.music) this.startJazz();
+  };
+
+  again = () => {
+    this.stopJazz();
+    (this._timers || []).forEach(clearTimeout);
+    this._timers = [];
+    this.setState({ step: 'form', phase: 'box' });
+  };
+
+  componentWillUnmount() {
+    (this._timers || []).forEach(clearTimeout);
+    cancelAnimationFrame(this._raf);
+    this.stopJazz();
+  }
+
+  // --- tiny synthesized jazz loop: walking bass + swung comp chords + hats ---
+  startJazz() {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC || this._playing) return;
+    const ctx = this._ctx || (this._ctx = new AC());
+    if (ctx.state === 'suspended') ctx.resume();
+    const master = ctx.createGain();
+    master.gain.value = 0.22;
+    master.connect(ctx.destination);
+    this._master = master;
+    this._playing = true;
+
+    const mtof = m => 440 * Math.pow(2, (m - 69) / 12);
+    const tone = (midi, at, dur, type, vol) => {
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = type;
+      o.frequency.value = mtof(midi);
+      g.gain.setValueAtTime(0.0001, at);
+      g.gain.linearRampToValueAtTime(vol, at + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0008, at + dur);
+      o.connect(g); g.connect(master);
+      o.start(at); o.stop(at + dur + 0.06);
+    };
+    const hat = (at, vol) => {
+      const len = 0.05, buf = ctx.createBuffer(1, Math.floor(ctx.sampleRate * len), ctx.sampleRate);
+      const d = buf.getChannelData(0);
+      for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / d.length);
+      const src = ctx.createBufferSource(); src.buffer = buf;
+      const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 7000;
+      const g = ctx.createGain(); g.gain.value = vol;
+      src.connect(hp); hp.connect(g); g.connect(master);
+      src.start(at);
+    };
+
+    // ii-V-I-VI in F: Gm7 - C7 - FMaj7 - Dm7
+    const bass = [[43, 45, 46, 48], [48, 50, 52, 53], [41, 43, 45, 46], [50, 48, 46, 45]];
+    const chords = [[62, 65, 69], [64, 67, 70], [60, 64, 69], [62, 65, 69]];
+    const beat = 0.42, swing = beat * 0.62;
+    let bar = 0;
+    let next = ctx.currentTime + 0.06;
+
+    const schedule = () => {
+      if (!this._playing) return;
+      while (next < ctx.currentTime + 0.7) {
+        const b = bar % 4;
+        for (let i = 0; i < 4; i++) {
+          const t = next + i * beat;
+          tone(bass[b][i], t, beat * 0.9, 'triangle', 0.5);
+          hat(t, 0.1);
+          hat(t + swing, 0.22);
+          if (i === 0 || i === 2) {
+            const off = i === 0 ? 0 : swing * 0.5;
+            chords[b].forEach((m, k) => tone(m + (k === 2 ? 0 : 0), t + off, beat * 1.2, 'sine', 0.16));
+          }
+        }
+        next += beat * 4;
+        bar++;
+      }
+      this._loop = setTimeout(schedule, 180);
+    };
+    schedule();
+  }
+
+  stopJazz() {
+    this._playing = false;
+    clearTimeout(this._loop);
+    if (this._master) {
+      try {
+        this._master.gain.setTargetAtTime(0, this._ctx.currentTime, 0.05);
+      } catch (e) {}
+      const m = this._master;
+      setTimeout(() => { try { m.disconnect(); } catch (e) {} }, 400);
+      this._master = null;
+    }
+  }
+
+  renderVals() {
+    const h = React.createElement;
+    const confetti = ['#FFE6A7', '#FF9EBE', '#A8DCD1', '#D9CBF5', '#E4658E', '#FFD2E0'];
+    const burstOn = this.state.phase !== 'box';
+
+    return {
+      isIntro: this.state.step === 'intro',
+      isForm: this.state.step === 'form',
+      isCelebrate: this.state.step === 'celebrate',
+      boxVisible: this.state.phase === 'box',
+      boxOpening: this.state.phase === 'burst',
+      burst: this.state.phase === 'burst' || this.state.phase === 'text',
+      showText: this.state.phase === 'text',
+      saved: this.state.saved,
+      text: this.state.text,
+      musicLabel: this.state.music ? '재즈 끄기' : '재즈 켜기',
+      dodgeRef: this.dodgeRef,
+      catsRef: this.catsRef,
+      start: () => this.setState({ step: 'form' }),
+      onType: e => this.setState({ text: e.target.value }),
+      onKey: e => { if (e.key === 'Enter') this.save(); },
+      save: this.save,
+      again: this.again,
+      toggleMusic: () => {
+        const on = !this.state.music;
+        this.setState({ music: on });
+        if (on) this.startJazz(); else this.stopJazz();
+      },
+      confetti: burstOn ? confetti.concat(confetti).map((c, i) => {
+        const a = (i / 12) * Math.PI * 2 + 0.3;
+        const dist = 120 + (i % 3) * 46;
+        return h('span', {
+          key: i,
+          style: {
+            position: 'absolute',
+            width: i % 2 ? 12 : 9,
+            height: i % 2 ? 12 : 16,
+            borderRadius: i % 2 ? '50%' : 3,
+            background: c,
+            left: 0, top: 0,
+            animation: `gb-fly ${900 + (i % 4) * 180}ms ease-out ${i * 22}ms forwards`,
+            ['--tx']: `${Math.cos(a) * dist}px`,
+            ['--ty']: `${Math.sin(a) * dist}px`
+          }
+        });
+      }) : null,
+      notes: ['♪', '♫', '♬'].map((n, i) => h('span', {
+        key: i,
+        style: {
+          position: 'absolute',
+          left: i === 0 ? '26%' : i === 1 ? '50%' : '70%',
+          bottom: 150 + i * 16,
+          zIndex: 2,
+          fontSize: 28 + i * 6,
+          color: '#E4658E',
+          animation: `note-float ${1500 + i * 320}ms ease-out ${i * 420}ms infinite`
+        }
+      }, n))
+    };
+  }
+}
+
+</script>
+</body>
+</html>

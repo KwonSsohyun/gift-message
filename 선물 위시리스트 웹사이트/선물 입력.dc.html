@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&family=DotGothic16&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/galmuri/dist/galmuri.css" rel="stylesheet">
+<style>
+  body { margin:0; background:#63A6DD; font-family:'Gowun Dodum', sans-serif; color:#2B2B2B; }
+  a { color:#1C5FA8; text-decoration:none; }
+  a:hover { color:#123F73; }
+  input { font-family:'Galmuri11','DotGothic16','Nanum Gothic Coding',monospace; }
+  @keyframes caret-blink { 0%,45%{opacity:1} 50%,100%{opacity:0} }
+  @keyframes cloud-drift { 0%{transform:translateX(0)} 100%{transform:translateX(70px)} }
+  @keyframes gb-shake { 0%,100%{transform:translateY(0) rotate(-6deg) scale(1)} 25%{transform:translateY(-8px) rotate(7deg) scale(1.04)} 50%{transform:translateY(0) rotate(-8deg) scale(1.02)} 75%{transform:translateY(-6px) rotate(6deg) scale(1.06)} }
+  @keyframes gb-lid { 0%{transform:translateY(0) rotate(0deg); opacity:1} 100%{transform:translateY(-190px) rotate(-38deg); opacity:0} }
+  @keyframes gb-boxfade { 0%{transform:scale(1)} 30%{transform:scale(1.16)} 100%{transform:scale(0.84); opacity:0} }
+  @keyframes gb-pop { 0%{transform:scale(0.6); opacity:1} 60%{transform:scale(1.6); opacity:0.9} 100%{transform:scale(2.2); opacity:0} }
+  @keyframes gb-fly { 0%{transform:translate(0,0) scale(0.3) rotate(0deg); opacity:0} 15%{opacity:1} 100%{transform:translate(var(--tx,0px), var(--ty,0px)) scale(1) rotate(240deg); opacity:0} }
+  @keyframes gb-text { 0%{transform:scale(0.5) rotate(-6deg); opacity:0} 55%{transform:scale(1.16) rotate(2deg); opacity:1} 100%{transform:scale(1) rotate(0); opacity:1} }
+  @keyframes cat-dance { 0%{transform:translateY(0) rotate(-6deg)} 25%{transform:translateY(-14px) rotate(3deg)} 50%{transform:translateY(0) rotate(6deg)} 75%{transform:translateY(-14px) rotate(-3deg)} 100%{transform:translateY(0) rotate(-6deg)} }
+  @keyframes note-float { 0%{transform:translateY(20px) rotate(-10deg); opacity:0} 25%{opacity:1} 100%{transform:translateY(-110px) rotate(16deg); opacity:0} }
+</style>
+</helmet>
+
+<div style="position:relative; min-height:100vh; box-sizing:border-box; overflow:hidden; background:linear-gradient(#2E77C4 0%, #5C9FD8 34%, #93C6EC 56%, #C6E1F5 63%, #DCEAF6 66%)">
+
+  <div style="position:absolute; left:4%; top:9%; width:250px; height:52px; border-radius:999px; background:rgba(255,255,255,0.9); filter:blur(11px); animation:cloud-drift 34s ease-in-out infinite alternate"></div>
+  <div style="position:absolute; left:50%; top:5%; width:320px; height:60px; border-radius:999px; background:rgba(255,255,255,0.75); filter:blur(13px); animation:cloud-drift 46s ease-in-out infinite alternate-reverse"></div>
+  <div style="position:absolute; left:22%; top:24%; width:200px; height:34px; border-radius:999px; background:rgba(255,255,255,0.6); filter:blur(10px); animation:cloud-drift 58s ease-in-out infinite alternate"></div>
+  <div style="position:absolute; left:70%; top:20%; width:170px; height:30px; border-radius:999px; background:rgba(255,255,255,0.5); filter:blur(9px); animation:cloud-drift 52s ease-in-out infinite alternate-reverse"></div>
+
+  <div style="position:absolute; left:-14%; right:-14%; bottom:-26%; height:74%; border-radius:50% 50% 0 0 / 44% 44% 0 0; background:linear-gradient(#8DC24A 0%, #6BAB34 36%, #4C8D22 74%, #3B7419 100%)"></div>
+  <div style="position:absolute; left:-24%; right:38%; bottom:-32%; height:60%; border-radius:50% 50% 0 0 / 52% 52% 0 0; background:linear-gradient(#9BCD55 0%, #6FAF36 100%); opacity:0.92"></div>
+  <div style="position:absolute; left:46%; right:-26%; bottom:-30%; height:52%; border-radius:50% 50% 0 0 / 50% 50% 0 0; background:linear-gradient(#85BC44 0%, #5FA02C 100%); opacity:0.85"></div>
+  <div style="position:absolute; left:0; right:0; bottom:0; height:18%; background:linear-gradient(rgba(38,92,20,0) 0%, rgba(28,70,14,0.6) 100%)"></div>
+
+  <sc-if value="{{ isForm }}" hint-placeholder-val="{{ true }}">
+    <div style="position:relative; z-index:2; min-height:100vh; box-sizing:border-box; padding:4vh 20px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:22px">
+
+      <div style="width:100%; max-width:760px; background:#C9CCD4; border:3px solid #2A2A2A; border-radius:4px; padding:5px; box-shadow:6px 6px 0 rgba(0,0,0,0.35)">
+        <div style="background:linear-gradient(#FDFDFD 0%, #EDEDF0 55%, #DCDCE2 100%); border:2px solid #6E6E78; padding:22px 26px; display:flex; gap:20px; align-items:center">
+          <img src="./dancing-cat.png" alt="고양이" style="width:78px; height:87px; flex:none; filter:drop-shadow(0 2px 0 rgba(0,0,0,0.15))">
+          <div style="flex:1; min-width:0">
+            <div style="font-family:'Galmuri11','DotGothic16','Nanum Gothic Coding',monospace; font-weight:700; font-size:26px; color:#1C1C1C; letter-spacing:-0.5px; line-height:1.45">상대방에게 적을 메시지를 적어라 . . .</div>
+          </div>
+          <span style="align-self:flex-end; font-size:22px; color:#3A3A3A; animation:caret-blink 900ms step-end infinite">▼</span>
+        </div>
+      </div>
+
+      <div style="width:100%; max-width:760px; background:#C9CCD4; border:3px solid #2A2A2A; border-radius:4px; padding:5px; box-shadow:6px 6px 0 rgba(0,0,0,0.35)">
+        <div style="background:linear-gradient(#FDFDFD 0%, #EFEFF2 100%); border:2px solid #6E6E78; padding:22px 26px">
+          <div style="display:flex; flex-direction:column; gap:12px; padding:14px; border:2px solid #4A4A52; background:#fff">
+            <span style="font-family:'Galmuri11','DotGothic16','Nanum Gothic Coding',monospace; font-weight:700; font-size:20px; color:#1C1C1C">▶ 입력하기</span>
+            <input type="text" value="{{ text }}" onChange="{{ onType }}" onKeyDown="{{ onKey }}" style="width:100%; box-sizing:border-box; border:2px inset #9A9AA2; background:#FAFAFC; padding:14px 16px; font-size:19px; color:#1C1C1C; outline:none">
+            <button type="button" onClick="{{ save }}" style="align-self:flex-end; font-family:'Galmuri11','DotGothic16','Nanum Gothic Coding',monospace; font-weight:700; font-size:19px; color:#1C1C1C; background:linear-gradient(#FDFDFD, #DCDCE2); border:2px outset #9A9AA2; padding:10px 28px; cursor:pointer" style-hover="background:linear-gradient(#fff, #EAEAEE)">확인</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isShare }}" hint-placeholder-val="{{ false }}">
+    <div style="position:relative; z-index:2; min-height:100vh; box-sizing:border-box; padding:4vh 20px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:22px">
+
+      <div style="width:100%; max-width:760px; background:#C9CCD4; border:3px solid #2A2A2A; border-radius:4px; padding:5px; box-shadow:6px 6px 0 rgba(0,0,0,0.35)">
+        <div style="background:linear-gradient(#FDFDFD 0%, #EDEDF0 55%, #DCDCE2 100%); border:2px solid #6E6E78; padding:22px 26px; display:flex; gap:20px; align-items:center">
+          <img src="./dancing-cat.png" alt="고양이" style="width:78px; height:87px; flex:none">
+          <div style="font-family:'Galmuri11','DotGothic16','Nanum Gothic Coding',monospace; font-weight:700; font-size:24px; color:#1C1C1C; line-height:1.45">이 링크를 상대방에게 보내라 . . .</div>
+        </div>
+      </div>
+
+      <div style="width:100%; max-width:760px; background:#C9CCD4; border:3px solid #2A2A2A; border-radius:4px; padding:5px; box-shadow:6px 6px 0 rgba(0,0,0,0.35)">
+        <div style="background:linear-gradient(#FDFDFD 0%, #EFEFF2 100%); border:2px solid #6E6E78; padding:22px 26px; display:flex; flex-direction:column; gap:16px">
+          <div style="border:2px inset #9A9AA2; background:#FAFAFC; padding:14px 16px; font-family:'Galmuri11','DotGothic16','Nanum Gothic Coding',monospace; font-size:15px; color:#1C1C1C; word-break:break-all">{{ link }}</div>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end">
+            <button type="button" onClick="{{ copy }}" style="font-family:'Galmuri11','DotGothic16','Nanum Gothic Coding',monospace; font-weight:700; font-size:18px; color:#1C1C1C; background:linear-gradient(#FDFDFD, #DCDCE2); border:2px outset #9A9AA2; padding:10px 24px; cursor:pointer">{{ copyLabel }}</button>
+            <button type="button" onClick="{{ openPreview }}" style="font-family:'Galmuri11','DotGothic16','Nanum Gothic Coding',monospace; font-weight:700; font-size:18px; color:#1C1C1C; background:linear-gradient(#FDFDFD, #DCDCE2); border:2px outset #9A9AA2; padding:10px 24px; cursor:pointer">상대방 화면 미리보기</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isGift }}" hint-placeholder-val="{{ false }}">
+    <div style="position:relative; z-index:2; height:100vh; box-sizing:border-box; padding:2vh 16px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; overflow:hidden">
+
+      <div style="width:100%; max-width:760px; background:#C9CCD4; border:3px solid #2A2A2A; border-radius:4px; padding:5px; box-shadow:6px 6px 0 rgba(0,0,0,0.35)">
+        <div style="background:linear-gradient(#FDFDFD 0%, #EDEDF0 55%, #DCDCE2 100%); border:2px solid #6E6E78; padding:18px 24px; display:flex; gap:18px; align-items:center">
+          <img src="./dancing-cat.png" alt="고양이" style="width:64px; height:72px; flex:none">
+          <div style="flex:1; min-width:0; font-family:'Galmuri11','DotGothic16','Nanum Gothic Coding',monospace; font-weight:700; font-size:24px; color:#1C1C1C; line-height:1.45">친구가 선물을 보냈습니다.</div>
+          <span style="align-self:flex-end; font-size:20px; color:#3A3A3A; animation:caret-blink 900ms step-end infinite">▼</span>
+        </div>
+      </div>
+
+      <div style="position:relative; width:100%; max-width:860px; flex:1; min-height:0">
+
+        <div ref="{{ catsRef }}" style="position:absolute; inset:0; z-index:1; pointer-events:none">
+          <canvas width="300" height="336" style="position:absolute; left:45%; top:0; width:10%; aspect-ratio:15 / 17; transform-origin:50% 100%; animation:cat-dance 420ms ease-in-out 0ms infinite"></canvas>
+          <canvas width="300" height="336" style="position:absolute; left:23%; top:4%; width:11%; aspect-ratio:15 / 17; transform-origin:50% 100%; animation:cat-dance 420ms ease-in-out 60ms infinite reverse"></canvas>
+          <canvas width="300" height="336" style="position:absolute; right:23%; top:4%; width:11%; aspect-ratio:15 / 17; transform-origin:50% 100%; animation:cat-dance 420ms ease-in-out 120ms infinite"></canvas>
+          <canvas width="300" height="336" style="position:absolute; left:1%; top:30%; width:13%; aspect-ratio:15 / 17; transform-origin:50% 100%; animation:cat-dance 420ms ease-in-out 180ms infinite reverse"></canvas>
+          <canvas width="300" height="336" style="position:absolute; right:1%; top:30%; width:13%; aspect-ratio:15 / 17; transform-origin:50% 100%; animation:cat-dance 420ms ease-in-out 240ms infinite"></canvas>
+          <canvas width="420" height="470" style="position:absolute; left:8%; bottom:0; width:16%; aspect-ratio:15 / 17; transform-origin:50% 100%; animation:cat-dance 420ms ease-in-out 300ms infinite"></canvas>
+          <canvas width="420" height="470" style="position:absolute; right:8%; bottom:0; width:16%; aspect-ratio:15 / 17; transform-origin:50% 100%; animation:cat-dance 420ms ease-in-out 360ms infinite reverse"></canvas>
+          <canvas width="420" height="470" style="position:absolute; left:41%; bottom:0; width:18%; aspect-ratio:15 / 17; transform-origin:50% 100%; animation:cat-dance 420ms ease-in-out 200ms infinite"></canvas>
+        </div>
+
+        {{ notes }}
+
+        <div style="position:absolute; left:0; right:0; top:50%; transform:translateY(-50%); z-index:4; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center">
+
+          <div style="position:absolute; left:50%; top:50%; width:0; height:0">{{ confetti }}</div>
+
+          <sc-if value="{{ boxVisible }}" hint-placeholder-val="{{ true }}">
+            <div onClick="{{ openGift }}" style="position:relative; z-index:2; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:14px">
+              <div style="background:#C9CCD4; border:3px solid #2A2A2A; padding:3px; box-shadow:4px 4px 0 rgba(0,0,0,0.3)">
+                <div style="background:linear-gradient(#FDFDFD, #EDEDF0); border:2px solid #6E6E78; padding:8px 18px; font-family:'Galmuri11','DotGothic16','Nanum Gothic Coding',monospace; font-size:16px; color:#1C1C1C; white-space:nowrap">클릭해서 열어보기</div>
+              </div>
+              <div style="margin-top:44px; animation:gb-shake 420ms ease-in-out infinite; transform-origin:50% 100%">
+                <div style="width:148px; height:122px; background:#E4658E; border-radius:14px; box-shadow:0 14px 30px rgba(0,0,0,0.35); position:relative">
+                  <div style="position:absolute; left:50%; top:0; bottom:0; width:22px; margin-left:-11px; background:#FFE6A7"></div>
+                  <div style="position:absolute; left:0; right:0; top:50%; height:22px; margin-top:-11px; background:#FFE6A7"></div>
+                  <div style="position:absolute; left:50%; top:-28px; margin-left:-44px; width:88px; height:36px; border:10px solid #FFE6A7; border-radius:44px 44px 6px 6px; box-sizing:border-box"></div>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ boxOpening }}" hint-placeholder-val="{{ false }}">
+            <div style="position:relative; z-index:2; animation:gb-boxfade 700ms ease-out forwards">
+              <div style="width:148px; height:122px; background:#E4658E; border-radius:14px; box-shadow:0 14px 30px rgba(0,0,0,0.35); position:relative">
+                <div style="position:absolute; left:50%; top:0; bottom:0; width:22px; margin-left:-11px; background:#FFE6A7"></div>
+                <div style="position:absolute; left:0; right:0; top:50%; height:22px; margin-top:-11px; background:#FFE6A7"></div>
+                <div style="position:absolute; left:50%; top:-28px; margin-left:-44px; width:88px; height:36px; border:10px solid #FFE6A7; border-radius:44px 44px 6px 6px; box-sizing:border-box; animation:gb-lid 700ms cubic-bezier(0.2,0.9,0.4,1) forwards"></div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ burst }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute; z-index:1; width:300px; height:300px; border-radius:999px; background:radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,230,167,0.5) 45%, rgba(255,230,167,0) 70%); animation:gb-pop 760ms ease-out forwards"></div>
+          </sc-if>
+
+          <sc-if value="{{ showText }}" hint-placeholder-val="{{ false }}">
+            <div style="position:relative; z-index:3; width:min(460px, 66%); background:#C9CCD4; border:3px solid #2A2A2A; border-radius:4px; padding:5px; box-shadow:6px 6px 0 rgba(0,0,0,0.35); animation:gb-text 620ms cubic-bezier(0.34,1.5,0.64,1) forwards">
+              <div style="background:linear-gradient(#FDFDFD 0%, #EDEDF0 55%, #DCDCE2 100%); border:2px solid #6E6E78; padding:22px 24px; display:flex; align-items:center; justify-content:center">
+                <span style="font-family:'Galmuri11','DotGothic16','Nanum Gothic Coding',monospace; font-weight:700; font-size:30px; color:#1C1C1C; line-height:1.45; text-wrap:pretty">{{ saved }}</span>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { step: 'form', text: '', saved: '', phase: 'box', link: '', copied: false };
+
+  componentDidMount() {
+    const m = /[#&?]g=([^&]+)/.exec(location.hash || '');
+    if (!m) return;
+    try {
+      const msg = decodeURIComponent(atob(decodeURIComponent(m[1])));
+      if (msg) this.setState({ step: 'gift', saved: msg, phase: 'box' });
+    } catch (e) {}
+  }
+
+  // one video, green-keyed into an offscreen canvas, blitted to every cat canvas
+  catsRef = el => {
+    if (this._wrap === el) return;
+    this._wrap = el;
+    if (!el) { cancelAnimationFrame(this._raf); if (this._vid) this._vid.pause(); return; }
+    const targets = Array.from(el.querySelectorAll('canvas'));
+    if (!targets.length) return;
+    const v = this._vid || (this._vid = Object.assign(document.createElement('video'), {
+      src: './cat-dance.mp4', loop: true, muted: true, playsInline: true, autoplay: true
+    }));
+    v.muted = true;
+    v.play().catch(() => {});
+    const W = 420, H = 470;
+    const off = document.createElement('canvas');
+    off.width = W; off.height = H;
+    const ctx = off.getContext('2d', { willReadFrequently: true });
+
+    const findCrop = () => {
+      const vw = v.videoWidth, vh = v.videoHeight;
+      const cw = 120, ch = Math.max(1, Math.round(vh * (120 / vw)));
+      const oc = document.createElement('canvas');
+      oc.width = cw; oc.height = ch;
+      const octx = oc.getContext('2d', { willReadFrequently: true });
+      octx.drawImage(v, 0, 0, cw, ch);
+      const q = octx.getImageData(0, 0, cw, ch).data;
+      let x0 = cw, y0 = ch, x1 = -1, y1 = -1;
+      for (let j = 0; j < ch; j++) for (let i = 0; i < cw; i++) {
+        const k = (j * cw + i) * 4;
+        if (q[k + 1] - Math.max(q[k], q[k + 2]) > 40) continue;
+        if (i < x0) x0 = i;
+        if (i > x1) x1 = i;
+        if (j < y0) y0 = j;
+        if (j > y1) y1 = j;
+      }
+      if (x1 < 0) return null;
+      const sc = vw / cw, pad = 6;
+      const sx = Math.max(0, (x0 - pad) * sc), sy = Math.max(0, (y0 - pad) * sc);
+      const sw = Math.min(vw - sx, (x1 - x0 + 1 + pad * 2) * sc);
+      const sh = Math.min(vh - sy, (y1 - y0 + 1 + pad * 2) * sc);
+      return sw > 8 && sh > 8 ? { sx, sy, sw, sh } : null;
+    };
+
+    const draw = () => {
+      this._raf = requestAnimationFrame(draw);
+      if (!v.videoWidth || v.readyState < 2) return;
+      if (!this._crop) this._crop = findCrop() || { sx: 0, sy: 0, sw: v.videoWidth, sh: v.videoHeight };
+      const c0 = this._crop;
+      const s = Math.min(W / c0.sw, H / c0.sh);
+      const w = c0.sw * s, h = c0.sh * s;
+      ctx.clearRect(0, 0, W, H);
+      ctx.drawImage(v, c0.sx, c0.sy, c0.sw, c0.sh, (W - w) / 2, H - h, w, h);
+      const d = ctx.getImageData(0, 0, W, H), p = d.data;
+      for (let i = 0; i < p.length; i += 4) {
+        if (!p[i + 3]) continue;
+        const r = p[i], g = p[i + 1], b = p[i + 2];
+        const spill = g - Math.max(r, b);
+        if (spill > 48) { p[i + 3] = 0; continue; }
+        if (spill > 22) {
+          p[i + 3] = Math.round(255 * (48 - spill) / 26);
+          const avg = (r + b) / 2;
+          if (g > avg) p[i + 1] = Math.round(avg + (g - avg) * 0.3);
+        }
+      }
+      ctx.putImageData(d, 0, 0);
+      targets.forEach(t => {
+        const tc = t.getContext('2d');
+        tc.clearRect(0, 0, t.width, t.height);
+        tc.drawImage(off, 0, 0, W, H, 0, 0, t.width, t.height);
+      });
+    };
+    draw();
+  };
+
+  save = () => {
+    const t = this.state.text.trim();
+    if (!t) return;
+    const base = location.origin + location.pathname;
+    const link = `${base}#g=${btoa(encodeURIComponent(t))}`;
+    this.setState({ step: 'share', saved: t, link, copied: false });
+  };
+
+  openGift = () => {
+    this._timers = this._timers || [];
+    this.setState({ phase: 'burst' });
+    this._timers.push(setTimeout(() => this.setState({ phase: 'text' }), 320));
+    this.startJazz();
+  };
+
+  componentWillUnmount() {
+    (this._timers || []).forEach(clearTimeout);
+    cancelAnimationFrame(this._raf);
+    this.stopJazz();
+  }
+
+  // goofy jazz: swung walking bass, honking comp chords, brush hats, random slide-whistle squeals
+  startJazz() {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC || this._playing) return;
+    const ctx = this._ctx || (this._ctx = new AC());
+    if (ctx.state === 'suspended') ctx.resume();
+    const master = ctx.createGain();
+    master.gain.value = 0.24;
+    master.connect(ctx.destination);
+    this._master = master;
+    this._playing = true;
+
+    const mtof = m => 440 * Math.pow(2, (m - 69) / 12);
+    const tone = (midi, at, dur, type, vol) => {
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = type;
+      o.frequency.value = mtof(midi);
+      g.gain.setValueAtTime(0.0001, at);
+      g.gain.linearRampToValueAtTime(vol, at + 0.015);
+      g.gain.exponentialRampToValueAtTime(0.0008, at + dur);
+      o.connect(g); g.connect(master);
+      o.start(at); o.stop(at + dur + 0.06);
+    };
+    const honk = (midi, at, dur, vol) => {
+      const o = ctx.createOscillator(), g = ctx.createGain(), f = ctx.createBiquadFilter();
+      o.type = 'sawtooth';
+      o.frequency.setValueAtTime(mtof(midi) * 0.94, at);
+      o.frequency.linearRampToValueAtTime(mtof(midi), at + 0.05);
+      f.type = 'lowpass'; f.frequency.value = 1700;
+      g.gain.setValueAtTime(0.0001, at);
+      g.gain.linearRampToValueAtTime(vol, at + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0008, at + dur);
+      o.connect(f); f.connect(g); g.connect(master);
+      o.start(at); o.stop(at + dur + 0.05);
+    };
+    const squeal = at => {
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'sine';
+      o.frequency.setValueAtTime(880, at);
+      o.frequency.exponentialRampToValueAtTime(320, at + 0.34);
+      g.gain.setValueAtTime(0.0001, at);
+      g.gain.linearRampToValueAtTime(0.16, at + 0.03);
+      g.gain.exponentialRampToValueAtTime(0.0008, at + 0.36);
+      o.connect(g); g.connect(master);
+      o.start(at); o.stop(at + 0.4);
+    };
+    const hat = (at, vol) => {
+      const len = 0.05, buf = ctx.createBuffer(1, Math.floor(ctx.sampleRate * len), ctx.sampleRate);
+      const d = buf.getChannelData(0);
+      for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / d.length);
+      const src = ctx.createBufferSource(); src.buffer = buf;
+      const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 7200;
+      const g = ctx.createGain(); g.gain.value = vol;
+      src.connect(hp); hp.connect(g); g.connect(master);
+      src.start(at);
+    };
+
+    const bass = [[43, 45, 46, 48], [48, 50, 52, 53], [41, 43, 45, 46], [50, 48, 46, 45]];
+    const chords = [[62, 65, 69, 72], [64, 67, 70, 74], [60, 64, 69, 71], [62, 65, 69, 72]];
+    const beat = 0.34, swing = beat * 0.64;
+    let bar = 0;
+    let next = ctx.currentTime + 0.06;
+
+    const schedule = () => {
+      if (!this._playing) return;
+      while (next < ctx.currentTime + 0.8) {
+        const b = bar % 4;
+        for (let i = 0; i < 4; i++) {
+          const t = next + i * beat;
+          tone(bass[b][i], t, beat * 0.85, 'triangle', 0.5);
+          hat(t, 0.09);
+          hat(t + swing, 0.2);
+          if (i === 0 || i === 2) {
+            const off = i === 0 ? 0 : swing * 0.4;
+            chords[b].forEach(m => honk(m, t + off, beat * 0.9, 0.09));
+          }
+          if (i === 3 && bar % 4 === 3) tone(bass[b][i] + 12, t + swing, beat * 0.5, 'square', 0.12);
+        }
+        if (bar % 8 === 7) squeal(next + beat * 3.2);
+        next += beat * 4;
+        bar++;
+      }
+      this._loop = setTimeout(schedule, 180);
+    };
+    schedule();
+  }
+
+  stopJazz() {
+    this._playing = false;
+    clearTimeout(this._loop);
+    if (this._master) {
+      try { this._master.gain.setTargetAtTime(0, this._ctx.currentTime, 0.05); } catch (e) {}
+      const m = this._master;
+      setTimeout(() => { try { m.disconnect(); } catch (e) {} }, 400);
+      this._master = null;
+    }
+  }
+
+  renderVals() {
+    const h = React.createElement;
+    const cols = ['#FFE6A7', '#FF9EBE', '#A8DCD1', '#D9CBF5', '#E4658E', '#FFFFFF'];
+    const burstOn = this.state.phase !== 'box';
+
+    return {
+      isForm: this.state.step === 'form',
+      isShare: this.state.step === 'share',
+      isGift: this.state.step === 'gift',
+      boxVisible: this.state.phase === 'box',
+      boxOpening: this.state.phase === 'burst',
+      burst: burstOn,
+      showText: this.state.phase === 'text',
+      saved: this.state.saved,
+      text: this.state.text,
+      link: this.state.link,
+      copyLabel: this.state.copied ? '복사됐다' : '링크 복사',
+      catsRef: this.catsRef,
+      onType: e => this.setState({ text: e.target.value }),
+      onKey: e => { if (e.key === 'Enter') this.save(); },
+      save: this.save,
+      openGift: this.openGift,
+      openPreview: () => this.setState({ step: 'gift', phase: 'box' }),
+      copy: () => {
+        const done = () => this.setState({ copied: true });
+        if (navigator.clipboard) navigator.clipboard.writeText(this.state.link).then(done, done);
+        else done();
+      },
+      confetti: burstOn ? cols.concat(cols, cols).map((c, i) => {
+        const a = (i / 18) * Math.PI * 2 + 0.2;
+        const dist = 150 + (i % 4) * 58;
+        return h('span', {
+          key: i,
+          style: {
+            position: 'absolute',
+            width: i % 2 ? 13 : 9,
+            height: i % 2 ? 13 : 18,
+            borderRadius: i % 2 ? '50%' : 3,
+            background: c,
+            left: 0, top: 0,
+            animation: `gb-fly ${950 + (i % 5) * 170}ms ease-out ${i * 18}ms forwards`,
+            ['--tx']: `${Math.cos(a) * dist}px`,
+            ['--ty']: `${Math.sin(a) * dist}px`
+          }
+        });
+      }) : null,
+      notes: burstOn ? ['♪', '♫', '♬', '♩'].map((n, i) => h('span', {
+        key: i,
+        style: {
+          position: 'absolute',
+          left: ['16%', '38%', '60%', '80%'][i],
+          top: 110 + (i % 2) * 26,
+          fontSize: 30 + (i % 3) * 8,
+          color: '#FFFFFF',
+          textShadow: '0 2px 6px rgba(0,0,0,0.35)',
+          zIndex: 3,
+          animation: `note-float ${1600 + i * 300}ms ease-out ${i * 380}ms infinite`
+        }
+      }, n)) : null
+    };
+  }
+}
+
+</script>
+</body>
+</html>

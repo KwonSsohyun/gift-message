@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin:0; background:#FFF4F8; font-family:'Gowun Dodum', sans-serif; color:#6B3A4E; }
+  a { color:#E4658E; text-decoration:none; }
+  a:hover { color:#C24470; }
+</style>
+</helmet>
+
+<section style="padding:56px 56px 96px; display:flex; flex-direction:column; gap:56px">
+
+  <div style="display:flex; align-items:flex-end; gap:20px; flex-wrap:wrap">
+    <h1 style="font-family:'Gaegu',cursive; font-weight:700; font-size:54px; margin:0; color:#C24470; letter-spacing:-1px">선물 위시리스트 · 하이파이 시안</h1>
+    <p style="margin:0 0 10px; font-size:17px; color:#8C5A6E">데스크톱 4화면 + 모바일 2컷 · 레이스 &amp; 리본 무드</p>
+  </div>
+
+  <!-- ===== 1a 내 위시리스트 ===== -->
+  <div id="1a" style="display:flex; flex-direction:column; gap:14px">
+    <div style="display:flex; align-items:center; gap:12px">
+      <span style="font-family:'Gaegu',cursive; font-weight:700; font-size:20px; background:#FFD9E6; color:#C24470; padding:4px 16px; border-radius:999px">1a</span>
+      <span style="font-size:19px; color:#8C5A6E">내 위시리스트 (홈)</span>
+    </div>
+
+    <div data-screen-label="1a 내 위시리스트" style="width:1180px; background:#FF9EBE; border-radius:34px; padding:16px; box-shadow:0 26px 60px rgba(214,111,146,0.28)">
+      <div style="background:#FFFCFA; border-radius:24px; overflow:hidden">
+
+        <div style="height:16px; background-image:radial-gradient(circle at 10px 0, #FF9EBE 8px, transparent 8.5px); background-size:20px 16px; background-repeat:repeat-x"></div>
+
+        <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 40px 22px; border-bottom:2px dotted #FFD2E0">
+          <div style="display:flex; align-items:center; gap:34px">
+            <span style="font-family:'Gaegu',cursive; font-weight:700; font-size:30px; color:#E4658E">gift.me ♡</span>
+            <div style="display:flex; gap:26px; font-size:17px">
+              <span style="color:#C24470; font-weight:700; border-bottom:3px solid #FF9EBE; padding-bottom:4px">내 위시</span>
+              <span style="color:#8C5A6E">친구들</span>
+              <span style="color:#8C5A6E">탐색</span>
+              <span style="color:#8C5A6E">캘린더</span>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:14px">
+            <div style="display:flex; align-items:center; gap:8px; background:#FFF0F5; border:1.5px solid #FFD2E0; border-radius:999px; padding:9px 18px; font-size:15px; color:#8C5A6E">선물 이름으로 찾기</div>
+            <div style="width:42px; height:42px; border-radius:999px; background:#FFE1B8; border:2px solid #fff; box-shadow:0 2px 8px rgba(214,111,146,0.25)"></div>
+          </div>
+        </div>
+
+        <div style="padding:34px 40px 44px; display:grid; grid-template-columns:1fr 296px; gap:34px">
+          <div style="display:flex; flex-direction:column; gap:26px; min-width:0">
+
+            <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap">
+              <div>
+                <h2 style="font-family:'Gaegu',cursive; font-weight:700; font-size:42px; margin:0 0 6px; color:#C24470">수아의 위시리스트</h2>
+                <p style="margin:0; font-size:16px; color:#8C5A6E">받고 싶은 거 12개 담아뒀어 ♡ 하나만 골라줘도 완전 좋아</p>
+              </div>
+              <div style="display:flex; gap:10px">
+                <div style="background:#fff; border:2px solid #FFD2E0; color:#C24470; border-radius:999px; padding:11px 22px; font-size:16px">링크 공유</div>
+                <div style="background:#E4658E; color:#fff; border-radius:999px; padding:11px 24px; font-size:16px; font-weight:700; box-shadow:0 8px 18px rgba(228,101,142,0.35)">＋ 선물 추가</div>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap">
+              <span style="background:#E4658E; color:#fff; border-radius:999px; padding:8px 20px; font-size:15px">전체 12</span>
+              <span style="background:#FFF0F5; color:#8C5A6E; border:1.5px solid #FFD2E0; border-radius:999px; padding:8px 20px; font-size:15px">뷰티 4</span>
+              <span style="background:#FFF0F5; color:#8C5A6E; border:1.5px solid #FFD2E0; border-radius:999px; padding:8px 20px; font-size:15px">소품 5</span>
+              <span style="background:#FFF0F5; color:#8C5A6E; border:1.5px solid #FFD2E0; border-radius:999px; padding:8px 20px; font-size:15px">패션 2</span>
+              <span style="background:#FFF0F5; color:#8C5A6E; border:1.5px solid #FFD2E0; border-radius:999px; padding:8px 20px; font-size:15px">홈 1</span>
+            </div>
+
+            <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:22px">
+
+              <div style="background:#fff; border:2px solid #FFE2EC; border-radius:22px; padding:14px; box-shadow:0 10px 22px rgba(214,111,146,0.12)">
+                <div style="position:relative; height:172px; border-radius:16px; overflow:hidden; background:#FFF0F5">
+                  <image-slot id="gift-1" placeholder="딸기 립밤 사진" shape="rounded" radius="16"></image-slot>
+                  <div style="position:absolute; top:10px; left:10px; background:rgba(255,255,255,0.92); color:#C24470; font-size:13px; border-radius:999px; padding:4px 12px">뷰티</div>
+                </div>
+                <div style="padding:14px 4px 4px; display:flex; flex-direction:column; gap:8px">
+                  <div style="font-size:17px; color:#6B3A4E">딸기 우유 립밤 세트</div>
+                  <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-family:'Gaegu',cursive; font-weight:700; font-size:22px; color:#E4658E">18,000원</div>
+                  </sc-if>
+                  <div style="display:flex; align-items:center; gap:8px; border-top:2px dotted #FFE2EC; padding-top:10px">
+                    <div style="width:26px; height:26px; border-radius:999px; background:#A8DCD1"></div>
+                    <span style="font-size:14px; color:#8C5A6E">지민이가 찜했어</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="background:#fff; border:2px solid #FFE2EC; border-radius:22px; padding:14px; box-shadow:0 10px 22px rgba(214,111,146,0.12)">
+                <div style="position:relative; height:172px; border-radius:16px; overflow:hidden; background:#FFF0F5">
+                  <image-slot id="gift-2" placeholder="레이스 파우치 사진" shape="rounded" radius="16"></image-slot>
+                  <div style="position:absolute; top:10px; left:10px; background:rgba(255,255,255,0.92); color:#C24470; font-size:13px; border-radius:999px; padding:4px 12px">소품</div>
+                </div>
+                <div style="padding:14px 4px 4px; display:flex; flex-direction:column; gap:8px">
+                  <div style="font-size:17px; color:#6B3A4E">레이스 리본 파우치</div>
+                  <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-family:'Gaegu',cursive; font-weight:700; font-size:22px; color:#E4658E">28,000원</div>
+                  </sc-if>
+                  <div style="display:flex; align-items:center; gap:8px; border-top:2px dotted #FFE2EC; padding-top:10px">
+                    <div style="width:26px; height:26px; border-radius:999px; background:#FFE1B8"></div>
+                    <div style="width:26px; height:26px; border-radius:999px; background:#D9CBF5; margin-left:-14px; border:2px solid #fff"></div>
+                    <span style="font-size:14px; color:#8C5A6E">2명이 찜했어</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="background:#fff; border:2px solid #FFE2EC; border-radius:22px; padding:14px; box-shadow:0 10px 22px rgba(214,111,146,0.12)">
+                <div style="position:relative; height:172px; border-radius:16px; overflow:hidden; background:#FFF0F5">
+                  <image-slot id="gift-3" placeholder="폴라로이드 필름 사진" shape="rounded" radius="16"></image-slot>
+                  <div style="position:absolute; top:10px; left:10px; background:rgba(255,255,255,0.92); color:#C24470; font-size:13px; border-radius:999px; padding:4px 12px">소품</div>
+                </div>
+                <div style="padding:14px 4px 4px; display:flex; flex-direction:column; gap:8px">
+                  <div style="font-size:17px; color:#6B3A4E">폴라로이드 필름 2팩</div>
+                  <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-family:'Gaegu',cursive; font-weight:700; font-size:22px; color:#E4658E">32,000원</div>
+                  </sc-if>
+                  <div style="display:flex; align-items:center; gap:8px; border-top:2px dotted #FFE2EC; padding-top:10px">
+                    <span style="font-size:14px; color:#9C6B82">아직 아무도 안 찜했어</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="background:#fff; border:2px solid #FFE2EC; border-radius:22px; padding:14px; box-shadow:0 10px 22px rgba(214,111,146,0.12)">
+                <div style="position:relative; height:172px; border-radius:16px; overflow:hidden; background:#FFF0F5">
+                  <image-slot id="gift-4" placeholder="체리 헤어핀 사진" shape="rounded" radius="16"></image-slot>
+                  <div style="position:absolute; top:10px; left:10px; background:rgba(255,255,255,0.92); color:#C24470; font-size:13px; border-radius:999px; padding:4px 12px">패션</div>
+                </div>
+                <div style="padding:14px 4px 4px; display:flex; flex-direction:column; gap:8px">
+                  <div style="font-size:17px; color:#6B3A4E">체리 리본 헤어핀</div>
+                  <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-family:'Gaegu',cursive; font-weight:700; font-size:22px; color:#E4658E">12,000원</div>
+                  </sc-if>
+                  <div style="display:flex; align-items:center; gap:8px; border-top:2px dotted #FFE2EC; padding-top:10px">
+                    <div style="width:26px; height:26px; border-radius:999px; background:#BFE0F5"></div>
+                    <span style="font-size:14px; color:#8C5A6E">하린이가 찜했어</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="background:#fff; border:2px solid #FFE2EC; border-radius:22px; padding:14px; box-shadow:0 10px 22px rgba(214,111,146,0.12)">
+                <div style="position:relative; height:172px; border-radius:16px; overflow:hidden; background:#FFF0F5">
+                  <image-slot id="gift-5" placeholder="버터 캔들 사진" shape="rounded" radius="16"></image-slot>
+                  <div style="position:absolute; top:10px; left:10px; background:rgba(255,255,255,0.92); color:#C24470; font-size:13px; border-radius:999px; padding:4px 12px">홈</div>
+                </div>
+                <div style="padding:14px 4px 4px; display:flex; flex-direction:column; gap:8px">
+                  <div style="font-size:17px; color:#6B3A4E">버터 향 미니 캔들</div>
+                  <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-family:'Gaegu',cursive; font-weight:700; font-size:22px; color:#E4658E">22,000원</div>
+                  </sc-if>
+                  <div style="display:flex; align-items:center; gap:8px; border-top:2px dotted #FFE2EC; padding-top:10px">
+                    <span style="font-size:14px; color:#9C6B82">아직 아무도 안 찜했어</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="background:#FFF6FA; border:2px dashed #FFB8CF; border-radius:22px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; min-height:300px">
+                <div style="font-family:'Gaegu',cursive; font-weight:700; font-size:40px; color:#FF9EBE">＋</div>
+                <div style="font-size:16px; color:#C24470">링크 붙이면 자동으로 채워져</div>
+                <div style="font-size:14px; color:#8C5A6E">쇼핑몰 주소만 있으면 끝 ♡</div>
+              </div>
+
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:20px">
+            <div style="background:#FFF0F5; border:2px solid #FFD2E0; border-radius:22px; padding:22px">
+              <div style="font-family:'Gaegu',cursive; font-weight:700; font-size:24px; color:#C24470; margin-bottom:6px">내 링크</div>
+              <div style="font-size:14px; color:#8C5A6E; margin-bottom:14px">친구한테 이거 보내면 돼</div>
+              <div style="background:#fff; border:1.5px solid #FFD2E0; border-radius:14px; padding:12px 14px; font-size:14px; color:#8C5A6E; word-break:break-all">gift.me/sua-wish</div>
+              <div style="margin-top:12px; background:#E4658E; color:#fff; text-align:center; border-radius:999px; padding:12px; font-size:16px; font-weight:700">링크 복사하기</div>
+            </div>
+
+            <div style="background:#fff; border:2px solid #FFE2EC; border-radius:22px; padding:22px">
+              <div style="font-family:'Gaegu',cursive; font-weight:700; font-size:24px; color:#C24470; margin-bottom:14px">다가오는 생일</div>
+              <div style="display:flex; flex-direction:column; gap:14px">
+                <div style="display:flex; align-items:center; gap:12px">
+                  <div style="width:38px; height:38px; border-radius:999px; background:#FFE1B8"></div>
+                  <div style="flex:1; min-width:0">
+                    <div style="font-size:16px">지민</div>
+                    <div style="font-size:13px; color:#8C5A6E">9월 24일</div>
+                  </div>
+                  <span style="background:#FFD9E6; color:#C24470; border-radius:999px; padding:4px 12px; font-size:14px">D-7</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px">
+                  <div style="width:38px; height:38px; border-radius:999px; background:#A8DCD1"></div>
+                  <div style="flex:1; min-width:0">
+                    <div style="font-size:16px">하린</div>
+                    <div style="font-size:13px; color:#8C5A6E">10월 2일</div>
+                  </div>
+                  <span style="background:#FFF0F5; color:#8C5A6E; border-radius:999px; padding:4px 12px; font-size:14px">D-15</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px">
+                  <div style="width:38px; height:38px; border-radius:999px; background:#D9CBF5"></div>
+                  <div style="flex:1; min-width:0">
+                    <div style="font-size:16px">유나</div>
+                    <div style="font-size:13px; color:#8C5A6E">10월 18일</div>
+                  </div>
+                  <span style="background:#FFF0F5; color:#8C5A6E; border-radius:999px; padding:4px 12px; font-size:14px">D-31</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="background:#FFF9E9; border:2px solid #FFE6A7; border-radius:22px; padding:22px">
+              <div style="font-family:'Gaegu',cursive; font-weight:700; font-size:22px; color:#B98A2E; margin-bottom:6px">뭐 받고 싶어? 질문 보내기</div>
+              <div style="font-size:14px; color:#9C7B43; margin-bottom:14px">친구 답이 오면 위시로 저장해줄게</div>
+              <div style="background:#fff; border:1.5px solid #FFE6A7; color:#B98A2E; text-align:center; border-radius:999px; padding:11px; font-size:15px">질문 만들기</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 1b 선물 상세 ===== -->
+  <div id="1b" style="display:flex; flex-direction:column; gap:14px">
+    <div style="display:flex; align-items:center; gap:12px">
+      <span style="font-family:'Gaegu',cursive; font-weight:700; font-size:20px; background:#FFD9E6; color:#C24470; padding:4px 16px; border-radius:999px">1b</span>
+      <span style="font-size:19px; color:#8C5A6E">선물 상세 (친구가 보는 화면)</span>
+    </div>
+
+    <div data-screen-label="1b 선물 상세" style="width:1180px; background:#FF9EBE; border-radius:34px; padding:16px; box-shadow:0 26px 60px rgba(214,111,146,0.28)">
+      <div style="background:#FFFCFA; border-radius:24px; overflow:hidden">
+        <div style="height:16px; background-image:radial-gradient(circle at 10px 0, #FF9EBE 8px, transparent 8.5px); background-size:20px 16px; background-repeat:repeat-x"></div>
+
+        <div style="padding:22px 40px; border-bottom:2px dotted #FFD2E0; display:flex; align-items:center; gap:14px; font-size:16px; color:#8C5A6E">
+          <span style="font-family:'Gaegu',cursive; font-weight:700; font-size:26px; color:#E4658E">gift.me ♡</span>
+          <span>수아의 위시리스트</span>
+          <span style="color:#E0B3C4">›</span>
+          <span style="color:#C24470">레이스 리본 파우치</span>
+        </div>
+
+        <div style="padding:40px; display:grid; grid-template-columns:480px minmax(0,1fr); gap:44px">
+          <div style="display:flex; flex-direction:column; gap:14px">
+            <div style="height:420px; border-radius:24px; overflow:hidden; background:#FFF0F5; border:2px solid #FFE2EC">
+              <image-slot id="detail-main" placeholder="파우치 대표 사진" shape="rounded" radius="22"></image-slot>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px">
+              <div style="height:88px; border-radius:16px; overflow:hidden; background:#FFF0F5; border:2px solid #FFD2E0"><image-slot id="detail-t1" placeholder="컷1" shape="rounded" radius="14"></image-slot></div>
+              <div style="height:88px; border-radius:16px; overflow:hidden; background:#FFF0F5; border:2px solid #FFE2EC"><image-slot id="detail-t2" placeholder="컷2" shape="rounded" radius="14"></image-slot></div>
+              <div style="height:88px; border-radius:16px; overflow:hidden; background:#FFF0F5; border:2px solid #FFE2EC"><image-slot id="detail-t3" placeholder="컷3" shape="rounded" radius="14"></image-slot></div>
+              <div style="height:88px; border-radius:16px; overflow:hidden; background:#FFF0F5; border:2px solid #FFE2EC"><image-slot id="detail-t4" placeholder="컷4" shape="rounded" radius="14"></image-slot></div>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:26px">
+            <div>
+              <div style="display:flex; gap:8px; margin-bottom:12px">
+                <span style="background:#FFD9E6; color:#C24470; border-radius:999px; padding:6px 16px; font-size:14px">소품</span>
+                <span style="background:#FFF9E9; color:#B98A2E; border-radius:999px; padding:6px 16px; font-size:14px">제일 갖고 싶어 ♡</span>
+              </div>
+              <h2 style="font-family:'Gaegu',cursive; font-weight:700; font-size:46px; margin:0 0 10px; color:#C24470; line-height:1.15">레이스 리본 파우치</h2>
+              <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}">
+                <div style="font-size:28px; color:#E4658E; font-weight:700">28,000원</div>
+              </sc-if>
+            </div>
+
+            <div style="background:#FFF6FA; border:2px solid #FFE2EC; border-radius:20px; padding:20px 22px">
+              <div style="font-size:15px; color:#8C5A6E; margin-bottom:8px">수아의 메모</div>
+              <div style="font-size:17px; line-height:1.7">파우치 안에 립밤이랑 이어폰 같이 넣고 다니고 싶어. 레이스 달린 거면 뭐든 다 좋아 ♡</div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:16px">
+              <div>
+                <div style="font-size:15px; color:#8C5A6E; margin-bottom:10px">색상</div>
+                <div style="display:flex; gap:10px">
+                  <span style="background:#E4658E; color:#fff; border-radius:999px; padding:9px 20px; font-size:15px">베이비 핑크</span>
+                  <span style="background:#fff; border:1.5px solid #FFD2E0; color:#8C5A6E; border-radius:999px; padding:9px 20px; font-size:15px">크림</span>
+                  <span style="background:#fff; border:1.5px solid #FFD2E0; color:#8C5A6E; border-radius:999px; padding:9px 20px; font-size:15px">민트</span>
+                </div>
+              </div>
+              <div>
+                <div style="font-size:15px; color:#8C5A6E; margin-bottom:10px">사이즈</div>
+                <div style="display:flex; gap:10px">
+                  <span style="background:#fff; border:1.5px solid #FFD2E0; color:#8C5A6E; border-radius:999px; padding:9px 20px; font-size:15px">S</span>
+                  <span style="background:#E4658E; color:#fff; border-radius:999px; padding:9px 20px; font-size:15px">M</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:12px; flex-wrap:wrap">
+              <div style="background:#E4658E; color:#fff; border-radius:999px; padding:16px 34px; font-size:18px; font-weight:700; box-shadow:0 10px 22px rgba(228,101,142,0.35)">내가 사줄게 ♡</div>
+              <div style="background:#fff; border:2px solid #FFD2E0; color:#C24470; border-radius:999px; padding:16px 30px; font-size:18px">쇼핑몰에서 보기</div>
+            </div>
+
+            <div style="border-top:2px dotted #FFD2E0; padding-top:20px">
+              <div style="font-size:15px; color:#8C5A6E; margin-bottom:12px">이 선물 찜한 친구</div>
+              <div style="display:flex; flex-direction:column; gap:12px">
+                <div style="display:flex; align-items:center; gap:12px">
+                  <div style="width:36px; height:36px; border-radius:999px; background:#FFE1B8"></div>
+                  <span style="font-size:16px">지민</span>
+                  <span style="font-size:14px; color:#8C5A6E">· 크림 / M 으로 사줄 예정</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px">
+                  <div style="width:36px; height:36px; border-radius:999px; background:#D9CBF5"></div>
+                  <span style="font-size:16px">유나</span>
+                  <span style="font-size:14px; color:#8C5A6E">· 같이 돈 모으고 싶어</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 1c 질문 보내기 / 공유 링크 ===== -->
+  <div id="1c" style="display:flex; flex-direction:column; gap:14px">
+    <div style="display:flex; align-items:center; gap:12px">
+      <span style="font-family:'Gaegu',cursive; font-weight:700; font-size:20px; background:#FFD9E6; color:#C24470; padding:4px 16px; border-radius:999px">1c</span>
+      <span style="font-size:19px; color:#8C5A6E">질문 보내기 · 답 모으기 (공유 링크 페이지)</span>
+    </div>
+
+    <div data-screen-label="1c 질문 보내기" style="width:1180px; background:#FF9EBE; border-radius:34px; padding:16px; box-shadow:0 26px 60px rgba(214,111,146,0.28)">
+      <div style="background:#FFFCFA; border-radius:24px; overflow:hidden">
+        <div style="height:16px; background-image:radial-gradient(circle at 10px 0, #FF9EBE 8px, transparent 8.5px); background-size:20px 16px; background-repeat:repeat-x"></div>
+
+        <div style="padding:40px; display:grid; grid-template-columns:minmax(0,1fr) 420px; gap:40px">
+          <div style="display:flex; flex-direction:column; gap:26px">
+            <div>
+              <h2 style="font-family:'Gaegu',cursive; font-weight:700; font-size:42px; margin:0 0 8px; color:#C24470">뭐 받고 싶어?</h2>
+              <p style="margin:0; font-size:17px; color:#8C5A6E">질문 카드 하나 만들어서 친구들한테 보내봐. 답은 여기로 모여 ♡</p>
+            </div>
+
+            <div style="background:#FFF0F5; border:2px solid #FFD2E0; border-radius:22px; padding:26px; display:flex; flex-direction:column; gap:20px">
+              <div>
+                <div style="font-size:15px; color:#8C5A6E; margin-bottom:10px">질문 문구</div>
+                <div style="background:#fff; border:1.5px solid #FFD2E0; border-radius:16px; padding:16px 18px; font-size:17px; color:#6B3A4E">생일에 뭐 받고 싶어? 세 개까지 알려줘!</div>
+              </div>
+              <div>
+                <div style="font-size:15px; color:#8C5A6E; margin-bottom:10px">보낼 친구</div>
+                <div style="display:flex; gap:10px; flex-wrap:wrap">
+                  <span style="background:#E4658E; color:#fff; border-radius:999px; padding:9px 18px; font-size:15px">지민 ✓</span>
+                  <span style="background:#E4658E; color:#fff; border-radius:999px; padding:9px 18px; font-size:15px">하린 ✓</span>
+                  <span style="background:#fff; border:1.5px solid #FFD2E0; color:#8C5A6E; border-radius:999px; padding:9px 18px; font-size:15px">유나</span>
+                  <span style="background:#fff; border:1.5px solid #FFD2E0; color:#8C5A6E; border-radius:999px; padding:9px 18px; font-size:15px">서윤</span>
+                  <span style="background:#fff; border:1.5px solid #FFD2E0; color:#8C5A6E; border-radius:999px; padding:9px 18px; font-size:15px">＋ 친구 추가</span>
+                </div>
+              </div>
+              <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap">
+                <div style="background:#E4658E; color:#fff; border-radius:999px; padding:14px 30px; font-size:17px; font-weight:700; box-shadow:0 10px 22px rgba(228,101,142,0.35)">질문 보내기</div>
+                <div style="background:#fff; border:2px solid #FFD2E0; color:#C24470; border-radius:999px; padding:14px 26px; font-size:17px">링크로 복사</div>
+              </div>
+            </div>
+
+            <div>
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px">
+                <div style="font-family:'Gaegu',cursive; font-weight:700; font-size:26px; color:#C24470">도착한 답 3</div>
+                <span style="font-size:15px; color:#8C5A6E">위시로 저장하면 내 리스트에 들어가</span>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:14px">
+
+                <div style="background:#fff; border:2px solid #FFE2EC; border-radius:20px; padding:20px; display:flex; gap:16px; align-items:center">
+                  <div style="width:48px; height:48px; border-radius:999px; background:#FFE1B8; flex:none"></div>
+                  <div style="flex:1; min-width:0">
+                    <div style="font-size:16px; margin-bottom:4px">지민</div>
+                    <div style="font-size:17px; color:#6B3A4E">레이스 양말이랑 딸기 우유 립밤! 아니면 필름 카메라 필름도 좋아</div>
+                  </div>
+                  <div style="background:#FFD9E6; color:#C24470; border-radius:999px; padding:10px 20px; font-size:15px; flex:none">위시로 저장</div>
+                </div>
+
+                <div style="background:#fff; border:2px solid #FFE2EC; border-radius:20px; padding:20px; display:flex; gap:16px; align-items:center">
+                  <div style="width:48px; height:48px; border-radius:999px; background:#BFE0F5; flex:none"></div>
+                  <div style="flex:1; min-width:0">
+                    <div style="font-size:16px; margin-bottom:4px">하린</div>
+                    <div style="font-size:17px; color:#6B3A4E">나는 향수! 플로럴 계열로 아무거나 ♡</div>
+                  </div>
+                  <div style="background:#FFD9E6; color:#C24470; border-radius:999px; padding:10px 20px; font-size:15px; flex:none">위시로 저장</div>
+                </div>
+
+                <div style="background:#fff; border:2px solid #FFE2EC; border-radius:20px; padding:20px; display:flex; gap:16px; align-items:center">
+                  <div style="width:48px; height:48px; border-radius:999px; background:#D9CBF5; flex:none"></div>
+                  <div style="flex:1; min-width:0">
+                    <div style="font-size:16px; margin-bottom:4px">유나</div>
+                    <div style="font-size:17px; color:#6B3A4E">머그컵 모으는 중이라 컵이면 다 좋아</div>
+                  </div>
+                  <div style="background:#FFF0F5; color:#8C5A6E; border:1.5px solid #FFD2E0; border-radius:999px; padding:10px 20px; font-size:15px; flex:none">저장됨</div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:18px">
+            <div style="font-size:15px; color:#8C5A6E">친구가 받는 카드 미리보기</div>
+            <div style="background:#FF9EBE; border-radius:28px; padding:14px">
+              <div style="background:#fff; border-radius:20px; overflow:hidden">
+                <div style="height:14px; background-image:radial-gradient(circle at 9px 0, #FF9EBE 7px, transparent 7.5px); background-size:18px 14px; background-repeat:repeat-x"></div>
+                <div style="padding:26px 24px 30px; text-align:center; display:flex; flex-direction:column; gap:16px; align-items:center">
+                  <div style="width:64px; height:64px; border-radius:999px; background:#FFE1B8; border:3px solid #FFF0F5"></div>
+                  <div style="font-size:16px; color:#8C5A6E">수아가 물어봤어</div>
+                  <div style="font-family:'Gaegu',cursive; font-weight:700; font-size:32px; color:#C24470; line-height:1.25">생일에 뭐 받고 싶어?<br>세 개까지 알려줘!</div>
+                  <div style="width:100%; background:#FFF6FA; border:1.5px dashed #FFB8CF; border-radius:16px; padding:18px; font-size:15px; color:#8C5A6E">여기에 답을 적어줘…</div>
+                  <div style="width:100%; background:#E4658E; color:#fff; border-radius:999px; padding:14px; font-size:17px; font-weight:700">답 보내기</div>
+                  <div style="font-size:13px; color:#9C6B82">답한 사람은 수아에게 보여</div>
+                </div>
+              </div>
+            </div>
+            <div style="background:#FFF9E9; border:2px solid #FFE6A7; border-radius:20px; padding:20px; font-size:15px; color:#9C7B43; line-height:1.7">카톡·인스타 DM으로 링크만 보내면 되고, 로그인 없이도 답할 수 있어.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 1d 생일 캘린더 ===== -->
+  <div id="1d" style="display:flex; flex-direction:column; gap:14px">
+    <div style="display:flex; align-items:center; gap:12px">
+      <span style="font-family:'Gaegu',cursive; font-weight:700; font-size:20px; background:#FFD9E6; color:#C24470; padding:4px 16px; border-radius:999px">1d</span>
+      <span style="font-size:19px; color:#8C5A6E">다가오는 생일 캘린더</span>
+    </div>
+
+    <div data-screen-label="1d 생일 캘린더" style="width:1180px; background:#FF9EBE; border-radius:34px; padding:16px; box-shadow:0 26px 60px rgba(214,111,146,0.28)">
+      <div style="background:#FFFCFA; border-radius:24px; overflow:hidden">
+        <div style="height:16px; background-image:radial-gradient(circle at 10px 0, #FF9EBE 8px, transparent 8.5px); background-size:20px 16px; background-repeat:repeat-x"></div>
+
+        <div style="padding:40px; display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:36px">
+          <div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:24px">
+              <h2 style="font-family:'Gaegu',cursive; font-weight:700; font-size:40px; margin:0; color:#C24470">2026년 9월</h2>
+              <div style="display:flex; gap:10px">
+                <span style="width:40px; height:40px; border-radius:999px; background:#FFF0F5; border:1.5px solid #FFD2E0; color:#C24470; display:flex; align-items:center; justify-content:center; font-size:18px">‹</span>
+                <span style="width:40px; height:40px; border-radius:999px; background:#FFF0F5; border:1.5px solid #FFD2E0; color:#C24470; display:flex; align-items:center; justify-content:center; font-size:18px">›</span>
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:10px; font-size:15px; color:#8C5A6E; text-align:center">
+              <div>일</div><div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div>토</div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:10px">
+              <div style="height:84px; border-radius:16px; background:#FDF7F9; border:1.5px solid #FBEAF0; padding:8px; font-size:15px; color:#D7BDC7">30</div>
+              <div style="height:84px; border-radius:16px; background:#FDF7F9; border:1.5px solid #FBEAF0; padding:8px; font-size:15px; color:#D7BDC7">31</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">1</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">2</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">3</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">4</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">5</div>
+
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">6</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">7</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">8</div>
+              <div style="height:84px; border-radius:16px; background:#FFF6FA; border:1.5px solid #FFD2E0; padding:8px; font-size:15px; display:flex; flex-direction:column; gap:6px">
+                <span>9</span>
+                <span style="background:#D9CBF5; color:#4D3C6B; border-radius:8px; padding:3px 8px; font-size:13px">서윤 생일</span>
+              </div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">10</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">11</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">12</div>
+
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">13</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">14</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">15</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">16</div>
+              <div style="height:84px; border-radius:16px; background:#E4658E; border:1.5px solid #E4658E; padding:8px; font-size:15px; color:#fff; display:flex; flex-direction:column; gap:6px">
+                <span style="font-weight:700">17</span>
+                <span style="background:rgba(255,255,255,0.9); color:#C24470; border-radius:8px; padding:3px 8px; font-size:13px">오늘</span>
+              </div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">18</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">19</div>
+
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">20</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">21</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">22</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">23</div>
+              <div style="height:84px; border-radius:16px; background:#FFF6FA; border:1.5px solid #FFB8CF; padding:8px; font-size:15px; display:flex; flex-direction:column; gap:6px">
+                <span style="font-weight:700; color:#C24470">24</span>
+                <span style="background:#FFD9E6; color:#C24470; border-radius:8px; padding:3px 8px; font-size:13px">지민 생일</span>
+              </div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">25</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">26</div>
+
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">27</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">28</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">29</div>
+              <div style="height:84px; border-radius:16px; background:#fff; border:1.5px solid #FFE2EC; padding:8px; font-size:15px">30</div>
+              <div style="height:84px; border-radius:16px; background:#FDF7F9; border:1.5px solid #FBEAF0; padding:8px; font-size:15px; color:#D7BDC7; display:flex; flex-direction:column; gap:6px">
+                <span>2</span>
+                <span style="background:#EDE6F5; color:#4D3C6B; border-radius:8px; padding:3px 8px; font-size:13px">하린 생일</span>
+              </div>
+              <div style="height:84px; border-radius:16px; background:#FDF7F9; border:1.5px solid #FBEAF0; padding:8px; font-size:15px; color:#D7BDC7">3</div>
+              <div style="height:84px; border-radius:16px; background:#FDF7F9; border:1.5px solid #FBEAF0; padding:8px; font-size:15px; color:#D7BDC7">4</div>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:18px">
+            <div style="background:#FFF0F5; border:2px solid #FFD2E0; border-radius:22px; padding:24px">
+              <div style="font-size:15px; color:#8C5A6E; margin-bottom:6px">제일 가까운 생일</div>
+              <div style="display:flex; align-items:center; gap:14px; margin-bottom:16px">
+                <div style="width:56px; height:56px; border-radius:999px; background:#FFE1B8; border:3px solid #fff"></div>
+                <div>
+                  <div style="font-family:'Gaegu',cursive; font-weight:700; font-size:30px; color:#C24470; line-height:1.1">지민 D-7</div>
+                  <div style="font-size:14px; color:#8C5A6E">9월 24일 목요일</div>
+                </div>
+              </div>
+              <div style="background:#fff; border:1.5px solid #FFD2E0; border-radius:16px; padding:14px; margin-bottom:12px">
+                <div style="font-size:14px; color:#8C5A6E; margin-bottom:8px">지민이 받고 싶은 것</div>
+                <div style="font-size:16px; line-height:1.6">레이스 양말 · 딸기 우유 립밤 · 필름</div>
+              </div>
+              <div style="background:#E4658E; color:#fff; text-align:center; border-radius:999px; padding:13px; font-size:16px; font-weight:700">위시리스트 보러가기</div>
+            </div>
+
+            <div style="background:#fff; border:2px solid #FFE2EC; border-radius:22px; padding:24px">
+              <div style="font-family:'Gaegu',cursive; font-weight:700; font-size:24px; color:#C24470; margin-bottom:14px">준비 상태</div>
+              <div style="display:flex; flex-direction:column; gap:14px; font-size:16px">
+                <div style="display:flex; justify-content:space-between"><span>지민</span><span style="color:#5FA894">선물 찜 완료</span></div>
+                <div style="display:flex; justify-content:space-between"><span>하린</span><span style="color:#E4658E">아직 안 골랐어</span></div>
+                <div style="display:flex; justify-content:space-between"><span>유나</span><span style="color:#8C5A6E">질문 보내기 전</span></div>
+              </div>
+            </div>
+
+            <div style="background:#FFF9E9; border:2px solid #FFE6A7; border-radius:22px; padding:20px; font-size:15px; color:#9C7B43; line-height:1.7">D-14, D-3에 알림 보내줄게. 생일 등록은 친구가 직접 해도 되고 네가 적어줘도 돼.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 1e 모바일 ===== -->
+  <div id="1e" style="display:flex; flex-direction:column; gap:14px">
+    <div style="display:flex; align-items:center; gap:12px">
+      <span style="font-family:'Gaegu',cursive; font-weight:700; font-size:20px; background:#FFD9E6; color:#C24470; padding:4px 16px; border-radius:999px">1e</span>
+      <span style="font-size:19px; color:#8C5A6E">모바일 — 위시리스트 / 답 모으기</span>
+    </div>
+
+    <div style="display:flex; gap:36px; flex-wrap:wrap">
+
+      <div data-screen-label="1e-1 모바일 위시리스트" style="width:390px; background:#FF9EBE; border-radius:40px; padding:12px; box-shadow:0 20px 44px rgba(214,111,146,0.28)">
+        <div style="background:#FFFCFA; border-radius:30px; overflow:hidden">
+          <div style="height:14px; background-image:radial-gradient(circle at 9px 0, #FF9EBE 7px, transparent 7.5px); background-size:18px 14px; background-repeat:repeat-x"></div>
+          <div style="padding:18px 20px 26px; display:flex; flex-direction:column; gap:18px">
+            <div style="display:flex; align-items:center; justify-content:space-between">
+              <span style="font-family:'Gaegu',cursive; font-weight:700; font-size:24px; color:#E4658E">gift.me ♡</span>
+              <div style="width:34px; height:34px; border-radius:999px; background:#FFE1B8"></div>
+            </div>
+            <div>
+              <h3 style="font-family:'Gaegu',cursive; font-weight:700; font-size:30px; margin:0 0 4px; color:#C24470">수아의 위시리스트</h3>
+              <p style="margin:0; font-size:14px; color:#8C5A6E">받고 싶은 거 12개 ♡</p>
+            </div>
+            <div style="display:flex; gap:8px; overflow:hidden">
+              <span style="background:#E4658E; color:#fff; border-radius:999px; padding:7px 16px; font-size:14px; white-space:nowrap">전체</span>
+              <span style="background:#FFF0F5; color:#8C5A6E; border:1.5px solid #FFD2E0; border-radius:999px; padding:7px 16px; font-size:14px; white-space:nowrap">뷰티</span>
+              <span style="background:#FFF0F5; color:#8C5A6E; border:1.5px solid #FFD2E0; border-radius:999px; padding:7px 16px; font-size:14px; white-space:nowrap">소품</span>
+              <span style="background:#FFF0F5; color:#8C5A6E; border:1.5px solid #FFD2E0; border-radius:999px; padding:7px 16px; font-size:14px; white-space:nowrap">패션</span>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px">
+              <div style="background:#fff; border:2px solid #FFE2EC; border-radius:18px; padding:10px">
+                <div style="height:110px; border-radius:12px; overflow:hidden; background:#FFF0F5"><image-slot id="m-gift-1" placeholder="사진" shape="rounded" radius="12"></image-slot></div>
+                <div style="padding:10px 2px 2px; display:flex; flex-direction:column; gap:4px">
+                  <div style="font-size:14px">딸기 우유 립밤</div>
+                  <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-family:'Gaegu',cursive; font-weight:700; font-size:18px; color:#E4658E">18,000원</div>
+                  </sc-if>
+                </div>
+              </div>
+              <div style="background:#fff; border:2px solid #FFE2EC; border-radius:18px; padding:10px">
+                <div style="height:110px; border-radius:12px; overflow:hidden; background:#FFF0F5"><image-slot id="m-gift-2" placeholder="사진" shape="rounded" radius="12"></image-slot></div>
+                <div style="padding:10px 2px 2px; display:flex; flex-direction:column; gap:4px">
+                  <div style="font-size:14px">레이스 파우치</div>
+                  <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-family:'Gaegu',cursive; font-weight:700; font-size:18px; color:#E4658E">28,000원</div>
+                  </sc-if>
+                </div>
+              </div>
+              <div style="background:#fff; border:2px solid #FFE2EC; border-radius:18px; padding:10px">
+                <div style="height:110px; border-radius:12px; overflow:hidden; background:#FFF0F5"><image-slot id="m-gift-3" placeholder="사진" shape="rounded" radius="12"></image-slot></div>
+                <div style="padding:10px 2px 2px; display:flex; flex-direction:column; gap:4px">
+                  <div style="font-size:14px">체리 헤어핀</div>
+                  <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-family:'Gaegu',cursive; font-weight:700; font-size:18px; color:#E4658E">12,000원</div>
+                  </sc-if>
+                </div>
+              </div>
+              <div style="background:#FFF6FA; border:2px dashed #FFB8CF; border-radius:18px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; min-height:170px">
+                <div style="font-family:'Gaegu',cursive; font-weight:700; font-size:30px; color:#FF9EBE">＋</div>
+                <div style="font-size:13px; color:#C24470">선물 추가</div>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; border-top:2px dotted #FFD2E0; padding-top:16px; font-size:13px; color:#8C5A6E">
+              <span style="color:#C24470; font-weight:700">내 위시</span>
+              <span>친구들</span>
+              <span>탐색</span>
+              <span>캘린더</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-screen-label="1e-2 모바일 답 모으기" style="width:390px; background:#FF9EBE; border-radius:40px; padding:12px; box-shadow:0 20px 44px rgba(214,111,146,0.28)">
+        <div style="background:#FFFCFA; border-radius:30px; overflow:hidden">
+          <div style="height:14px; background-image:radial-gradient(circle at 9px 0, #FF9EBE 7px, transparent 7.5px); background-size:18px 14px; background-repeat:repeat-x"></div>
+          <div style="padding:18px 20px 26px; display:flex; flex-direction:column; gap:18px">
+            <div style="font-size:14px; color:#8C5A6E">질문 보내기</div>
+            <h3 style="font-family:'Gaegu',cursive; font-weight:700; font-size:30px; margin:0; color:#C24470">뭐 받고 싶어?</h3>
+            <div style="background:#FFF0F5; border:2px solid #FFD2E0; border-radius:18px; padding:16px; font-size:15px; color:#6B3A4E">생일에 뭐 받고 싶어? 세 개까지 알려줘!</div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap">
+              <span style="background:#E4658E; color:#fff; border-radius:999px; padding:7px 16px; font-size:14px">지민 ✓</span>
+              <span style="background:#E4658E; color:#fff; border-radius:999px; padding:7px 16px; font-size:14px">하린 ✓</span>
+              <span style="background:#fff; border:1.5px solid #FFD2E0; color:#8C5A6E; border-radius:999px; padding:7px 16px; font-size:14px">유나</span>
+            </div>
+            <div style="background:#E4658E; color:#fff; text-align:center; border-radius:999px; padding:15px; font-size:17px; font-weight:700">카톡으로 보내기</div>
+            <div style="border-top:2px dotted #FFD2E0; padding-top:16px; display:flex; flex-direction:column; gap:12px">
+              <div style="font-size:15px; color:#8C5A6E">도착한 답 3</div>
+              <div style="background:#fff; border:2px solid #FFE2EC; border-radius:16px; padding:14px; display:flex; gap:12px; align-items:center">
+                <div style="width:36px; height:36px; border-radius:999px; background:#FFE1B8; flex:none"></div>
+                <div style="flex:1; min-width:0">
+                  <div style="font-size:14px">지민</div>
+                  <div style="font-size:14px; color:#8C5A6E">레이스 양말, 립밤, 필름</div>
+                </div>
+              </div>
+              <div style="background:#fff; border:2px solid #FFE2EC; border-radius:16px; padding:14px; display:flex; gap:12px; align-items:center">
+                <div style="width:36px; height:36px; border-radius:999px; background:#BFE0F5; flex:none"></div>
+                <div style="flex:1; min-width:0">
+                  <div style="font-size:14px">하린</div>
+                  <div style="font-size:14px; color:#8C5A6E">플로럴 향수</div>
+                </div>
+              </div>
+              <div style="background:#fff; border:2px solid #FFE2EC; border-radius:16px; padding:14px; display:flex; gap:12px; align-items:center">
+                <div style="width:36px; height:36px; border-radius:999px; background:#D9CBF5; flex:none"></div>
+                <div style="flex:1; min-width:0">
+                  <div style="font-size:14px">유나</div>
+                  <div style="font-size:14px; color:#8C5A6E">머그컵이면 다 좋아</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showPrices&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;표시 옵션&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { showPrices: this.props.showPrices ?? true };
+  }
+}
+
+</script>
+</body>
+</html>
